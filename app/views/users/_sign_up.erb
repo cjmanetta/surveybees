@@ -1,8 +1,8 @@
-<form method="post" action="/sign_up">
-  <input type="text" name="username" placeholder="Username">
-  <input type="text" name="firstname" placeholder="First Name">
-  <input type="text" name="lastname" placeholder="Last Name">
-  <input type="text" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
+<form method="post" action="/users">
+  <input type="text" name="user[username]" placeholder="Username">
+  <input type="text" name="user[first_name]" placeholder="First Name">
+  <input type="text" name="user[last_name]" placeholder="Last Name">
+  <input type="text" name="user[email]" placeholder="Email">
+  <input type="password" name="user[password]" placeholder="Password">
   <input type="submit" value="Sign up!">
 </form>
