@@ -1,4 +1,4 @@
-![alt text](https://github.com/cjmanetta/surveybees/documentation/schema_survey.png "Logo Title Text 1")
+![alt text](/documentation/schema_survey.png "Logo Title Text 1")
 
 > **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
 
