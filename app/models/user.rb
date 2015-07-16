@@ -1,6 +1,14 @@
 class User < ActiveRecord::Base
   include BCrypt
 
+  has_many :user_surveys
+  has_many :surveys, :through => :user_surveys
+  has_many :votes
+  has_many :choices, :through => :votes
+
+  validates :email, :presence => true, :uniqueness => true
+  validates :username, :presence => true, :uniqueness => true
+
    def password
     @password ||= Password.new(password_hash)
   end
@@ -15,5 +23,10 @@ class User < ActiveRecord::Base
     if user && user.password == password
       user
     end
+  end
+  # called in controller at login for a new session
+  # Syntax like: User.login_email_or_pwd(arg1, arg2)
+  def login_email_or_pwd(email, username)
+    email || username
   end
 end
