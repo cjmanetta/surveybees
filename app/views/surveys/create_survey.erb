@@ -1,0 +1,11 @@
+<form action="/users/<%= session[:user_id] %>/surveys/create" method="post">
+  <label for="name">Survey name: </label>
+  <input type="input" size="70" name="name" id="survey-name" placeholder="Enter the name of your survey here"><br><br>
+  <label for="expiration">Expiration date: </label>
+  <input type="datetime" name="expiration" id="survey-expiration" placeholder="YYYY-MM-DD"><em>* survey will expire at 5pm PST</em><br><br>
+  <label for="name">Question: </label><br>
+  <input type="input" size="70" name="name" id="survey-name" placeholder="Enter a new question:"><br><br>
+  <button type="button">Add Question</button>
+  <input type="submit" value="Create Survey">
+</form>
+
