@@ -23,7 +23,8 @@ end
 
 post '/users/:id/question/create' do
   @question = Question.create(survey_id: params[:survey_id], text: params[:text])
-
+  Choice.create(question_id: @question.id, text: "Yes")
+  Choice.create(question_id: @question.id, text: "No")
   if request.xhr?
     (erb :'/surveys/_question', layout: false).to_json
   else
