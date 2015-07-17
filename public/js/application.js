@@ -53,10 +53,24 @@ function questionListener() {
 
       var path = $("#add-question").attr('action');
       var method = $("#add-question").attr('method');
-      var surveyData = $(this).serialize();
-      console.log(path + " | " + method + " | " + surveyData);
+      var surveyData = $('question-text').val();
 
+      var request = $.ajax({
+        url: path,
+        type: method,
+        data: surveyData,
+        dataType: "JSON"
+      });
 
+      request.done(function(response){
+        $("#add-question").remove();
+        $("#survey-main").append(response); // .questions-list
+      });
+
+      request.fail(function(response){
+        console.log("fail");
+      });
+    });
   });
 
 
