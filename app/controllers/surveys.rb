@@ -30,3 +30,10 @@ post '/users/:id/question/create' do
     redirect '/'
   end
 end
+
+get '/users/:id/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  # @choices = @questions.choices
+  erb :'surveys/take_survey'
+end

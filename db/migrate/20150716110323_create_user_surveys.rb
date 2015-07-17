@@ -5,6 +5,6 @@ class CreateUserSurveys < ActiveRecord::Migration
         t.references :survey, index: true
         t.timestamps
       end
-      add_index :user_surveys, [:taker_id, :survey_id], unique: true
+      # add_index :user_surveys, [:taker_id, :survey_id], unique: true
   end
 end
