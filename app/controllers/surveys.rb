@@ -34,5 +34,6 @@ end
 get '/users/:id/surveys/:id' do
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
-  erb :take_survey
+  # @choices = @questions.choices
+  erb :'surveys/take_survey'
 end

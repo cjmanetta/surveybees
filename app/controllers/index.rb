@@ -9,6 +9,7 @@ end
 get '/users/:id' do
   @surveys = Survey.all
   @your_surveys = Survey.where(author_id: current_user.id)
+
   erb :"users/dashboard"
 end
 
