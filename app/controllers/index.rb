@@ -3,6 +3,7 @@ get '/' do
 end
 
 post '/users' do
+  p params
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
@@ -25,3 +26,6 @@ get '/logout' do
   redirect '/'
 end
 
+get '/login' do
+  erb :"users/_login"
+end
