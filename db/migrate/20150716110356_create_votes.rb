@@ -5,6 +5,5 @@ class CreateVotes < ActiveRecord::Migration
       t.references :user_id, index: true
       t.timestamps
     end
-    add
   end
 end
