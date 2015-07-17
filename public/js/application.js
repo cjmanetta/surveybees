@@ -12,7 +12,7 @@ $(document).ready(function() {
 function bindEvents() {
 
   newSurveyListener();
-
+  //questionListener();
 
 
 }
@@ -22,7 +22,6 @@ function bindEvents() {
 function newSurveyListener() {
   $('#create-survey').on('submit', function(event) {
       event.preventDefault();
-
       var path = $("#create-survey").attr('action');
       var method = $("#create-survey").attr('method');
       var surveyData = $(this).serialize();
@@ -44,10 +43,10 @@ function newSurveyListener() {
         console.log("fail");
       });
     });
-}
+};
 
 function questionListener() {
-  $('#add-question').on('submit' function(event) {
+  $('#add-question').on('submit', function(event){
     event.preventDefault();
     console.log('adding a question now using ajax')
 
@@ -70,13 +69,6 @@ function questionListener() {
       request.fail(function(response){
         console.log("fail");
       });
-    });
   });
+};
 
-
-
-
-
-
-
-}

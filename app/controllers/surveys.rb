@@ -13,6 +13,7 @@ post '/users/:id/surveys/create' do
 end
 
 post '/users/:id/surveys/question/create' do
+  @survey = Survey.create(name: params[:name], author_id: params[:id], expiration: params[:expiration])
   @question = Question.create(survey_id: params[:survey_id], text: params[:text])
   if request.xhr?
         (erb :'/surveys/_create_survey', layout: false).to_json
