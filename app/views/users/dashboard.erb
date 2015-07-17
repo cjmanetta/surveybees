@@ -35,7 +35,7 @@
   <div class="small-12 columns">
     <h4>All Surveys:</h4>
       <% @surveys.each do |survey|%>
-          <li><a href="#"><%= survey.name %></a></li>
+          <li><a href="/users/<%= current_user.id %>/surveys/<%= survey.id %>"><%= survey.name %></a></li>
       <% end %>
   </div>
 </article>

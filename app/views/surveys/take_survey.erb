@@ -1,12 +1,14 @@
 <h2><%= @survey.name %></h2>
-<form id="take-survey" name="actual-survey" method="post" action="">
+<form id="take-survey" name="actual-survey" method="post" action="/users/<%=current_user.id%>/surveys/<%=@survey.id%>/votes">
 <ol>
   <% counter = 1 %>
   <% @questions.each do |question| %>
     <li><%= question.text %></li>
       <% question.choices.each do |choice| %>
-        <input type="radio" name="<%= counter if counter% %>" value="<%= choice.text %>"><%= choice.text %>
+        <input type="radio" name="question<%= counter %>" value="<%= choice.text %>"><%= choice.text %>&nbsp;&nbsp;
       <% end %>
+      <% counter += 1 %>
   <% end %>
 </ol>
+<input class="button success" type="submit" value="Submit Survey">
 </form>
