@@ -1,7 +1,8 @@
 <br>
 <article class="row">
+
   <div class="small-12 large-6 columns">
-    <h1>Welcome, <%= @user.username %>!</h1>
+    <h1>Welcome <%= current_user.username %></h1>
   </div>
 
   <div class="small-12 large-3 large-offset-3 columns">
@@ -12,14 +13,19 @@
 <article class="row">
   <div class="small-12 large-6 columns">
     <h4>Your Info:</h4>
-    <h4>Username: <%= @user.username %></h4>
-    <h4>Email: <%= @user.email %></h4>
-    <h4>First Name: <%= @user.first_name %></h4>
-    <h4>Last Name: <%= @user.last_name %></h4>
+    <h4>Username: <%=current_user.username %></h4>
+    <h4>Email: <%=current_user.email %></h4>
+    <h4>First Name: <%=current_user.first_name %></h4>
+    <h4>Last Name: <%=current_user.last_name %></h4>
   </div>
 
   <div class="small-12 large-6 columns">
     <h4>Your Surveys:</h4>
+      <ul>
+        <% @your_surveys.each do |survey|%>
+          <li><a href="#"><%= survey.name %></a></li>
+        <% end %>
+      </ul>
   </div>
 </article>
 
@@ -28,6 +34,9 @@
 <article class="row">
   <div class="small-12 columns">
     <h4>All Surveys:</h4>
+      <% @surveys.each do |survey|%>
+          <li><a href="#"><%= survey.name %></a></li>
+      <% end %>
   </div>
 </article>
 
