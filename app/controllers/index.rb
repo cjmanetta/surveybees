@@ -1,13 +1,23 @@
 get '/' do
-  erb :index
+  if logged_in?
+    erb :"users/dashboard"
+  else
+    erb :index
+  end
 end
 
+get '/users/:id' do
+  @surveys = Survey.all
+  @your_surveys = Survey.where(author_id: current_user.id)
+  erb :"users/dashboard"
+end
+
+
 post '/users' do
-  p params
   @user = User.new(params[:user])
   if @user.save
     session[:id] = @user.id
-    erb :"users/dashboard"
+    redirect "/users/#{@user.id}"
   else
     redirect '/'
   end
@@ -17,7 +27,7 @@ post '/login' do
   @user = User.authenticate(params[:username], params[:password])
   if @user
     session[:id] = @user.id
-    erb :"users/dashboard"
+    redirect "/users/#{@user.id}"
   end
 end
 
