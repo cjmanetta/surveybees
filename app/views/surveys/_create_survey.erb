@@ -1,7 +1,7 @@
-<form action="/users/<%= session[:user_id] %>/surveys/create" method="post">
+<form action="/users/<%= session[:user_id] %>/surveys/create" method="post" id="survey-created">
     <p>Survey name: <%=@survey.name%></p>
     <p>Expiration date: <%=@survey.expiration%></p>
-    <input type="datetime" name="expiration" id="survey-expiration" placeholder="YYYY-MM-DD"><em>* survey will expire at 5pm PST</em><br><br>
+    <p><em>* survey will expire at 5pm PST</em></p><br><br>
       <label for="name">Question: </label><br>
       <input type="input" size="70" name="name" id="survey-name" placeholder="Enter a new question:"><br><br>
     <button id="add-question" type="button">Add Question</button>

@@ -11,8 +11,7 @@ $(document).ready(function() {
 
 function bindEvents() {
   $('#create-survey').on('submit', function(event) {
-    var surveyName = $('#survey-name').val();
-    console.log(surveyName)
+    // console.log(surveyName)
     event.preventDefault();
 
     var path = $("#create-survey").attr('action');
@@ -21,19 +20,25 @@ function bindEvents() {
     console.log(path + " | " + method + " | " + surveyData);
 
     var request = $.ajax({
-      url: this.path,
-      type: this.method,
+      url: path,
+      type: method,
       data: surveyData,
       dataType: "JSON"
-    })
+    });
+
+    console.log(request)
 
     request.done(function(server_data){
-      console.log("success");
-    }
+      console.log(server_data);
+      console.log();
+      $("#survey-creator").hide();
+      $("#survey-main").append(server_data);
+    });
+
 
     request.fail(function(server_data){
-      console.log("fail" + errorThrown);
-    }
+      console.log("fail");
+    });
 
   });
 
