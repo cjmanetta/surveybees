@@ -25,3 +25,6 @@ get '/logout' do
   redirect '/'
 end
 
+get '/login' do
+  erb :"users/_login"
+end

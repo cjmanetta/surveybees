@@ -1,0 +1,11 @@
+#modal {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 5vh;
+  right: .8vw;
+  padding: 2vw;
+  padding-bottom: 25vh;
+  background-color: #FF8300;
+  display: none;
+}

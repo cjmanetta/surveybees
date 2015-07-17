@@ -1,14 +1,36 @@
-<h1>hello from the dashboard</h1>
 
-<a href='/logout'>Log out!</a><br>
+<article class="row">
+  <div class="small-6 columns">
+    <h1>Welcome <%= @user.username %></h1>
+  </div>
 
-<p>Username: <%= @user.username %></p>
-<p>First Name: <%= @user.first_name %></p>
-<p>Last Name: <%= @user.last_name %></p>
-<p>Email: <%= @user.email %></p>
+</article>
+
+<article class="row">
+  <div class="small-12 large-6 columns">
+    <h4>Your Info:</h4>
+    <h4>Username: <%= @user.username %></h4>
+    <h4>Email: <%= @user.email %></h4>
+    <h4>First Name: <%= @user.first_name %></h4>
+    <h4>Last Name: <%= @user.last_name %></h4>
+  </div>
+
+  <div class="small-12 large-6 columns">
+    <h4>Your Surveys:</h4>
+  </div>
+</article>
+
+<br>
+
+<article class="row">
+  <div class="small-12 columns">
+    <h4>All Surveys:</h4>
+  </div>
+</article>
+
 <!-- #it should have basic profile information
 
-#list of surveys that have been taken
+#list of surveys
 
 #list of all surveys that have been created
 
