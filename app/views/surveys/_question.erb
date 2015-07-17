@@ -1,0 +1,6 @@
+<form action="/users/<%= session[:id] %>/surveys/create" method="post" id="survey-created">
+  <label for="text">Question: </label><br>
+  <input type="input" size="70" name="text" id="survey-name" placeholder="Enter a new question:"><br><br>
+  <button id="add-question" type="button">Add Question</button>
+  <input id="new-survey" type="submit" value="Create Survey">
+</form>
