@@ -28,6 +28,9 @@ post '/login' do
   if @user
     session[:id] = @user.id
     redirect "/users/#{@user.id}"
+  else
+    p "Please enter a valid username and password"
+    redirect "/"
   end
 end
 

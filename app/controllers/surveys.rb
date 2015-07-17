@@ -20,3 +20,9 @@ post '/users/:id/surveys/question/create' do
 
   end
 end
+
+get '/users/:id/surveys/:id' do
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  erb :take_survey
+end
