@@ -32,8 +32,11 @@
         <ul class="right">
           <li class="has-form">
             <div class="row collapse">
-              <li class="active" id="login_button"><a href="#" >Login</a></li>
-              <li class="active"><a href="/logout">Logout</a></li>
+              <% if logged_in?%>
+                <li class="active"><a href="/logout">Logout</a></li>
+              <% else %>
+                <li class="active" id="login_button"><a href="#" >Login</a></li>
+              <% end %>
             </div>
           </li>
         </ul>
