@@ -1,13 +1,7 @@
-<form action="/users/<%= session[:id] %>/surveys/create" method="post" id="add-question">
-  <label for="text">Question: </label><br>
-  <input type="input" size="70" name="text" id="question-text" placeholder="Enter a new question:"><br><br>
-  <input id="add-question" type="submit" value="Add Question">
-</form>
+<p>Question : <%= @question.text %></p>
+  <form action="/users/<%= session[:id] %>/question/create" method="post" id="add-question">
+    <label for="text">Question: </label><br>
+    <input type="input" size="70" name="text" id="question-text" placeholder="Enter a new question:"><br><br>
+    <input type="submit" value="Add Question" class="button success">
+  </form>
 
-<ol>
-  <% @questions_list.each do |question| %>
-  <li>
-    <%= question %>
-  </li>
-  <% end %>
-</ol>
