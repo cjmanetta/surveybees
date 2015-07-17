@@ -9,6 +9,7 @@ end
 get '/users/:id' do
   @surveys = Survey.all
   @your_surveys = Survey.where(author_id: current_user.id)
+
   erb :"users/dashboard"
 end
 
@@ -28,6 +29,9 @@ post '/login' do
   if @user
     session[:id] = @user.id
     redirect "/users/#{@user.id}"
+  else
+    p "Please enter a valid username and password"
+    redirect "/"
   end
 end
 
