@@ -8,7 +8,9 @@ end
 
 get '/users/:id' do
   @surveys = Survey.all
+  p "P OUT WITH YOUR D OUT"
   @your_surveys = Survey.where(author_id: current_user.id)
+  p @your_surveys
 
   erb :"users/dashboard"
 end

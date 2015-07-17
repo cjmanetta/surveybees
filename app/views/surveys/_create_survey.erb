@@ -1,6 +1,7 @@
-    <p>Survey name: <%=@survey.name%></p>
-    <p>Expiration date: <%=@survey.expiration%></p>
-    <p><em>* survey will expire at 5pm PST</em></p><br><br>
+
+    <h3>Survey name: <%=@survey.name%></h3>
+    <h4>Expiration date: <%=@survey.expiration%></h4>
+    <h5><em>* survey will expire at 5pm PST</em></h5><br>
 <form action="/users/<%= session[:id] %>/question/create" method="post" id="survey-created">
       <input type="hidden" name="survey_id" value="<%= @survey.id %>" >
       <label for="text">Question: </label><br>
