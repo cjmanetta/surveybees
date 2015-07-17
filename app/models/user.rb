@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :user_surveys
-  has_many :surveys, :through => :user_surveys
+  has_many :surveys
   has_many :votes
   has_many :choices, :through => :votes
 

@@ -1,0 +1,16 @@
+<div class="container" id="survey-main" >
+  <div id="survey-creator">
+    <h2>New Survey</h2>
+    <form id="create-survey" action="/users/<%= session[:id] %>/surveys/create" method="post">
+      <label for="name">Survey name: </label>
+      <input type="input" size="70" name="name" id="survey-name" placeholder="Enter the name of your survey here"><br><br>
+      <label for="expiration">Expiration date: </label>
+      <input type="datetime" name="expiration" id="survey-expiration" placeholder="YYYY-MM-DD"><em>* survey will expire at 5pm PST</em><br><br>
+      <input id="new-survey" type="submit" value="Create Survey">
+    </form>
+  </div>
+
+</div>
+
+
+<!-- <span id="questions"></span> -->
