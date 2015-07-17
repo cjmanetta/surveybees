@@ -1,12 +1,11 @@
-<form action="/users/<%= session[:id] %>/surveys/create" method="post" id="survey-created">
     <p>Survey name: <%=@survey.name%></p>
     <p>Expiration date: <%=@survey.expiration%></p>
     <p><em>* survey will expire at 5pm PST</em></p><br><br>
+<form action="/users/<%= session[:id] %>/question/create" method="post" id="survey-created">
       <input type="hidden" name="survey_id" value="<%= @survey.id %>" >
       <label for="text">Question: </label><br>
       <input type="input" size="70" name="text" id="survey-name" placeholder="Enter a new question:"><br><br>
-    <button id="add-question" type="button">Add Question</button>
-    <input id="new-survey" type="submit" value="Create Survey">
+    <input class="button success" id="add-question" type="submit" value="Add Question">
   </form>
 
 <!-- assuming a Y or N choice -->
