@@ -12,7 +12,8 @@ $(document).ready(function() {
 function bindEvents() {
 
   newSurveyListener();
-  //questionListener();
+  firstQuestionListener();
+  questionListener();
 
 
 }
@@ -45,25 +46,29 @@ function newSurveyListener() {
     });
 };
 
-function questionListener() {
-  $('#add-question').on('submit', function(event){
-    event.preventDefault();
-    console.log('adding a question now using ajax')
+function firstQuestionListener() {
 
-      var path = $("#add-question").attr('action');
-      var method = $("#add-question").attr('method');
-      var surveyData = $('question-text').val();
+  $('.container').on('submit', '#survey-created', function(event){
+  //$('.container').on('click', '#survey-created', function(event){
+    event.preventDefault();
+    console.log('adding a question now using ajax');
+
+      var qpath = $("#survey-created").attr('action');
+      var qmethod = $("#survey-created").attr('method');
+      var qsurveyData = $(this).serialize();
+      console.log(qpath + " | " + qmethod + " | " + qsurveyData);
 
       var request = $.ajax({
-        url: path,
-        type: method,
-        data: surveyData,
+        url: qpath,
+        type: qmethod,
+        data: qsurveyData,
         dataType: "JSON"
       });
 
       request.done(function(response){
-        $("#add-question").remove();
-        $("#survey-main").append(response); // .questions-list
+        console.log("success");
+        $("#survey-created").remove();
+        $(".container").append(response); // #survey-main .questions-list
       });
 
       request.fail(function(response){
@@ -72,3 +77,33 @@ function questionListener() {
   });
 };
 
+function questionListener() {
+
+  $('.container').on('submit', '#add-question', function(event){
+  //$('.container').on('click', '#add-question', function(event){
+    event.preventDefault();
+    console.log('adding a question now using ajax');
+
+      var qpath = $("#add-question").attr('action');
+      var qmethod = $("#add-question").attr('method');
+      var qsurveyData = $(this).serialize();
+      console.log(qpath + " | " + qmethod + " | " + qsurveyData);
+
+      var request = $.ajax({
+        url: qpath,
+        type: qmethod,
+        data: qsurveyData,
+        dataType: "JSON"
+      });
+
+      request.done(function(response){
+        console.log("success");
+        $("#add-question").remove();
+        $(".container").append(response); // #survey-main .questions-list
+      });
+
+      request.fail(function(response){
+        console.log("fail");
+      });
+  });
+};
