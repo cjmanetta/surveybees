@@ -1,4 +1,7 @@
-<p>Question : <%= @question.text %></p>
+<div class="row">
+<div class="small-12 large-6 columns">
+
+<h3>Question : <%= @question.text %></h3>
 <form action="/users/<%= session[:id] %>/question/create" method="post" id="add-question">
   <label for="text">Question: </label><br>
   <input type="input" size="70" name="text" id="question-text" placeholder="Enter a new question:"><br><br>
@@ -7,4 +10,7 @@
 <form method="get" action="/users/:id">
     <button class = "button" type="submit">Done</button>
 </form>
+
+</div>
+</div>
 
